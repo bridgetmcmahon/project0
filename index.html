@@ -8,26 +8,47 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
   <script src="js/jquery.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/logic.js"></script>
+  <script src="js/interface.js"></script>
 </head>
 <body>
 
   <header>
     <h1>Tic-Tac-Toe</h1>
+    <h2><i class="fas fa-candy-cane"></i> Christmas Edition <i class="fas fa-candy-cane"></i></h2>
   </header>
 
-<div id="grid-container">
-  <div id="0" class="boxes"></div>
-  <div id="1" class="boxes"></div>
-  <div id="2" class="boxes"></div>
-  <div id="3" class="boxes"></div>
-  <div id="4" class="boxes"></div>
-  <div id="5" class="boxes"></div>
-  <div id="6" class="boxes"></div>
-  <div id="7" class="boxes"></div>
-  <div id="8" class="boxes"></div>
-</div>
+  <div id="subheader">
+    <div id="player-one" class="score">Player 1 Wins: <span id="player-one-score">0</span></div>
+    <div class="score">
+      <button id="reset">New Game</button>
+    </div>
+    <div id="player-two" class="score">Player 2 Wins: <span id="player-two-score">0</span></div>
+  </div>
+
+  <div id="user-message">
+    <span></span>
+  </div>
+
+  <main>
+    <div id="grid-container">
+      <div id="0" class="boxes"></div>
+      <div id="1" class="boxes"></div>
+      <div id="2" class="boxes"></div>
+      <div id="3" class="boxes"></div>
+      <div id="4" class="boxes"></div>
+      <div id="5" class="boxes"></div>
+      <div id="6" class="boxes"></div>
+      <div id="7" class="boxes"></div>
+      <div id="8" class="boxes"></div>
+    </div>
+  </main>
+
+  <footer>
+    Created by Bridget 2018
+  </footer>
 
 </body>
 </html>
