@@ -25,17 +25,22 @@ h2 {
   font-size: 2em;
 }
 
-#subheader {
+#settings {
   background-color: white;
   color: #7DCE82;
   text-align: center;
   height: 40px;
-  width: 600px;
+  width: 700px;
   /* display: grid; */
   display: flex;
   margin: 0 auto;
   /* grid-template-columns: 0.9fr 1.2fr 0.9fr; */
   justify-content: space-between;
+}
+
+.selected {
+  background-color: #E71D36;
+  color: white
 }
 
 .score {
@@ -46,11 +51,7 @@ h2 {
   line-height: 40px;
 }
 
-.score span {
-  display: inline-block;
-}
-
-#subheader p {
+#settings p {
   color: #7DCE82;
   text-transform: uppercase;
 }
@@ -68,6 +69,10 @@ button {
 button:hover {
   background: #E71D36;
   color: white;
+}
+
+.score span {
+  display: inline-block;
 }
 
 #user-message {
@@ -102,6 +107,10 @@ main {
   border: 2px solid #5B965F;
   color: white;
   line-height: 166px;
+}
+
+#grid-container .fas, #grid-container .far {
+  line-height: 150px;
 }
 
 footer {

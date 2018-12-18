@@ -1,31 +1,33 @@
 const game = {
-  playerOne: "X",
-  playerTwo: "O",
-  playerOneWins: 0, // show these in score span
+  playerOne: 'X',
+  playerOneToken: '<i class="fas fa-candy-cane"></i>',
+  playerTwo: 'O',
+  playerTwoToken: '<i class="fas fa-sleigh"></i>',
+  playerOneWins: 0,
   playerTwoWins: 0,
-  currentPlayer: 'playerOne',
+  playerOneTurn: true,
   moves: 0,
   message: "",
   board: [null, null, null, null, null, null, null, null, null],
   move: function(position) {
-    if (this.currentPlayer === 'playerOne') {
+    if (this.playerOneTurn === true) {
       if (this.board[position] !== "X" && this.board[position] !== "O") {
         this.board[position] = "X";
         if (this.checkWinner() === true) {
-          this.message = "X wins";
+          this.message = "Player One wins";
           this.playerOneWins++;
         } else {
-          this.currentPlayer = 'playerTwo';
+          this.playerOneTurn = false;
         }
       }
-    } else if (this.currentPlayer === 'playerTwo') {
+    } else if (this.playerOneTurn === false) {
       if (this.board[position] !== "X" && this.board[position] !== "O") {
         this.board[position] = "O"
         if (this.checkWinner() === true) {
-          this.message = "O wins"
+          this.message = "Player Two wins"
           this.playerTwoWins++;
         } else {
-          this.currentPlayer = 'playerOne'
+          this.playerOneTurn = true;
         }
       }
     }
@@ -35,7 +37,7 @@ const game = {
 
   checkWinner: function() {
     let icon;
-    if (this.currentPlayer === 'playerOne') {
+    if (this.playerOneTurn === true) {
       icon = this.playerOne;
     } else {
       icon = this.playerTwo;
@@ -58,9 +60,10 @@ const game = {
   resetGame: function() {
     this.board = [null, null, null, null, null, null, null, null, null];
     this.moves = 0;
-    this.currentPlayer = 'playerOne';
+    this.playerOneTurn = true;
     this.message = "";
-  }
+  },
 }; // game object
 
-// board factory for creating boards larger than 3x3
+
+// board factory for creating boards larger than 3x3????
