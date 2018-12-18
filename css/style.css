@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Mountains+of+Christmas');
+
 body {
   font-family: Helvetica, sans-serif;
   box-sizing: border-box;
+  font-family: "Lato", sans-serif;
 }
 
 header {
@@ -17,12 +20,14 @@ h1 {
   padding-top: 20px;
   line-height: 80px;
   font-size: 3em;
+  font-family: "Lato", sans-serif;
 }
 
 h2 {
   margin: 0;
   padding: 10px;
   font-size: 2em;
+  font-family: "Mountains of Christmas", cursive, sans-serif;
 }
 
 #settings {
@@ -51,11 +56,6 @@ h2 {
   line-height: 40px;
 }
 
-#settings p {
-  color: #7DCE82;
-  text-transform: uppercase;
-}
-
 button {
   border: none;
   background: none;
@@ -75,13 +75,37 @@ button:hover {
   display: inline-block;
 }
 
+#scores {
+  background-color: #7DCE82;
+  color: white;
+  text-align: center;
+  display: flex;
+  margin: 0 auto;
+}
+
+#tally {
+  display: flex;
+  height: 40px;
+  width: 700px;
+  background-color: #7DCE82;
+  text-align: center;
+  margin: 0 auto;
+  justify-content: space-between;
+  font-size: 1.3em;
+  padding-top: 20px;
+}
+
 #user-message {
-  height: 30px;
+  display: flex;
+  height: 40px;
   background-color: #7DCE82;
   text-align: center;
   color: white;
   font-size: 30px;
-  padding-top: 20px;
+}
+
+#user-message span {
+  width: 300px;
 }
 
 main {

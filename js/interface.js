@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+// SET TOKENS /////////////////////////////////
   const setTokens = function() {
     if ($('#normal').hasClass('selected')) {
       game.playerOneToken = '<i class="fas fa-times"></i>';
@@ -17,18 +18,19 @@ $(document).ready(function() {
     setTokens();
   });
 
-
 // UPDATE BOARD ON CLICK /////////////////////
   $('#grid-container').on('click', 'div', function(event) {
     const id = event.target.id;
 
-    if ($(this).text().length < 1) {
+    if ($(this).text().length < 1 && game.gameOver === false) {
       if (game.playerOneTurn) {
-        game.move(id);
-        $(this).append(game.playerOneToken).children().hide().fadeIn(400);
+        if (game.move(id)) {
+          $(this).append(game.playerOneToken).children().hide().fadeIn(400);
+        }
       } else if (game.playerOneTurn === false){
-        game.move(id);
-        $(this).append(game.playerTwoToken).children().hide().fadeIn(400);
+        if (game.move(id)) {
+          $(this).append(game.playerTwoToken).children().hide().fadeIn(400);
+        }
       }
     }
 
@@ -40,6 +42,7 @@ $(document).ready(function() {
 // GAME RESET ///////////////////////////////
   $('#reset').on('click', function() {
     game.resetGame();
+    $('#user-message span').text("");
     $('.boxes').empty();
   });
 
