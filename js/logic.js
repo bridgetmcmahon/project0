@@ -101,6 +101,7 @@ const game = {
     this.playerOneTurn = true;
     this.message = "";
     this.gameOver = false;
+    this.winningRow = [];
   },
 }; // game object
 

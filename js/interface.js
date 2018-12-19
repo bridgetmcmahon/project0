@@ -57,7 +57,7 @@ $(document).ready(function() {
     game.resetGame();
     $('#user-message span').text("");
     $('.boxes').empty();
-    $('#grid-container div').fadeIn(200);
+    $('#grid-container div').css('visibility', 'visible');
   });
 
 }); // document ready
