@@ -15,7 +15,8 @@ $(document).ready(function() {
     if (!$(this).hasClass('selected')) {
       game.resetGame();
       $('#user-message span').text("");
-      $('.boxes').empty();
+      $('.boxes').empty().removeClass('winner');
+      $('#grid-container div').css('visibility', 'visible');
 
       $('.tokens').toggleClass('selected');
       setTokens();
@@ -56,7 +57,7 @@ $(document).ready(function() {
   $('#reset').on('click', function() {
     game.resetGame();
     $('#user-message span').text("");
-    $('.boxes').empty();
+    $('.boxes').empty().removeClass('winner');
     $('#grid-container div').css('visibility', 'visible');
   });
 

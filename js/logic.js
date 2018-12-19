@@ -10,6 +10,16 @@ const game = {
   moves: 0,
   message: "",
   winningRow: [],
+  winningCombos: [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ],
   board: [null, null, null, null, null, null, null, null, null],
   performMoveForPlayer: function(position, name, piece, playerCount) {
     if (this.board[position] !== piece && this.board[position] === null) {
@@ -46,43 +56,15 @@ const game = {
       icon = this.playerOne;
     }
 
-    const winsRowOne = this.board[0] === icon && this.board[1] === icon && this.board[2] === icon;
-    const winsRowTwo = this.board[3] === icon && this.board[4] === icon && this.board[5] === icon;
-    const winsRowThree = this.board[6] === icon && this.board[7] === icon && this.board[8] === icon;
-    const winsColOne = this.board[0] === icon && this.board[3] === icon && this.board[6] === icon;
-    const winsColTwo = this.board[1] === icon && this.board[4] === icon && this.board[7] === icon;
-    const winsColThree = this.board[2] === icon && this.board[5] === icon && this.board[8] === icon;
-    const winsDiagOne = this.board[0] === icon && this.board[4] === icon && this.board[8] === icon;
-    const winsDiagTwo = this.board[2] === icon && this.board[4] === icon && this.board[6] === icon;
-
-    if (winsRowTwo || winsRowThree || winsColOne || winsColTwo || winsColThree || winsDiagOne || winsDiagTwo) {
-      this.gameOver = true;
-    }
-
-    if (winsRowOne) {
-      this.winningRow.push(0, 1, 2);
-      return true;
-    } else if (winsRowTwo) {
-      this.winningRow.push(3, 4, 5);
-      return true;
-    } else if (winsRowThree) {
-      this.winningRow.push(6, 7, 8);
-      return true;
-    } else if (winsColOne) {
-      this.winningRow.push(0, 3, 6);
-      return true;
-    } else if (winsColTwo) {
-      this.winningRow.push(1, 4, 7);
-      return true;
-    } else if (winsColThree) {
-      this.winningRow.push(2, 5, 8);
-      return true;
-    } else if (winsDiagOne) {
-      this.winningRow.push(0, 4, 8);
-      return true;
-    } else if (winsDiagTwo) {
-      this.winningRow.push(2, 4, 6);
-      return true;
+    for (let i = 0; i < this.winningCombos.length; i++) {
+      let position1 = this.winningCombos[i][0]
+      let position2 = this.winningCombos[i][1]
+      let position3 = this.winningCombos[i][2]
+      if (this.board[position1] === icon && this.board[position2] === icon && this.board[position3] === icon) {
+        this.winningRow = [position1, position2, position3];
+        this.gameOver = true;
+        return true;
+      }
     }
     return false;
   },
@@ -104,6 +86,3 @@ const game = {
     this.winningRow = [];
   },
 }; // game object
-
-
-// board factory for creating boards larger than 3x3????
