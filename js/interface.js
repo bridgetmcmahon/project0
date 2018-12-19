@@ -12,10 +12,14 @@ $(document).ready(function() {
   };
 
   $('.token-setting').on('click', function() {
-    game.resetGame();
-    $('.boxes').empty();
-    $('.token-setting').toggleClass('selected');
-    setTokens();
+    if (!$(this).hasClass('selected')) {
+      game.resetGame();
+      $('#user-message span').text("");
+      $('.boxes').empty();
+
+      $('.token-setting').toggleClass('selected');
+      setTokens();
+    }
   });
 
 // UPDATE BOARD ON CLICK /////////////////////
@@ -35,8 +39,17 @@ $(document).ready(function() {
     }
 
     $('#user-message span').text(game.message);
-    $('#player-one-score').text(game.playerOneWins);
-    $('#player-two-score').text(game.playerTwoWins);
+    $('#player-one-score').text(game.playerOneWinCount);
+    $('#player-two-score').text(game.playerTwoWinCount);
+
+    if (game.gameOver) {
+      $('#grid-container div').css('visibility', 'hidden');
+      for (let i = 0; i < 3; i++) {
+        let winnerID = game.winningRow[i];
+        $('#' + winnerID).addClass('winner');
+        $('.winner').css('visibility', 'visible');
+      }
+    }
   });
 
 // GAME RESET ///////////////////////////////
@@ -44,6 +57,7 @@ $(document).ready(function() {
     game.resetGame();
     $('#user-message span').text("");
     $('.boxes').empty();
+    $('#grid-container div').fadeIn(200);
   });
 
 }); // document ready

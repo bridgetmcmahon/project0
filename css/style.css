@@ -36,11 +36,14 @@ h2 {
   text-align: center;
   height: 40px;
   width: 700px;
-  /* display: grid; */
   display: flex;
   margin: 0 auto;
-  /* grid-template-columns: 0.9fr 1.2fr 0.9fr; */
   justify-content: space-between;
+}
+
+#token-setting * {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .selected {
@@ -121,16 +124,18 @@ main {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   display: grid;
+  font-size: 350%;
 }
 
 .boxes {
   display: inline-grid;
+  background-color: white;
   text-align: center;
   vertical-align: middle;
-  font-size: 80px;
-  border: 2px solid #5B965F;
-  color: white;
+  color: #5B965F;
   line-height: 166px;
+  border-radius: 5px;
+  margin: 2px;
 }
 
 #grid-container .fas, #grid-container .far {
@@ -143,4 +148,8 @@ footer {
   color: white;
   height: 50px;
   line-height: 50px;
+}
+
+.winner {
+  background-color: white;
 }
