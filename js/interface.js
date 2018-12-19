@@ -11,13 +11,13 @@ $(document).ready(function() {
     }
   };
 
-  $('.token-setting').on('click', function() {
+  $('.tokens').on('click', function() {
     if (!$(this).hasClass('selected')) {
       game.resetGame();
       $('#user-message span').text("");
       $('.boxes').empty();
 
-      $('.token-setting').toggleClass('selected');
+      $('.tokens').toggleClass('selected');
       setTokens();
     }
   });
