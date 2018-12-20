@@ -1,3 +1,10 @@
+const render = function() {
+  game.resetGame();
+  $('#user-message span').text("");
+  $('.boxes').empty().removeClass('winner');
+  $('#grid-container div').css('visibility', 'visible');
+}
+
 $(document).ready(function() {
 
 // SET TOKENS /////////////////////////////////
@@ -13,31 +20,22 @@ $(document).ready(function() {
 
   $('.tokens').on('click', function() {
     if (!$(this).hasClass('selected')) {
-      game.resetGame();
-      $('#user-message span').text("");
-      $('.boxes').empty().removeClass('winner');
-      $('#grid-container div').css('visibility', 'visible');
-
+      render();
       $('.tokens').toggleClass('selected');
       setTokens();
     }
   });
 
+
 // SET PLAYER OR COMPUTER /////////////////////
   $('#player-player').on('click', function() {
     game.isComputerOpponent = false;
-    game.resetGame();
-    $('#user-message span').text("");
-    $('.boxes').empty().removeClass('winner');
-    $('#grid-container div').css('visibility', 'visible');
+    render();
   });
 
   $('#computer').on('click', function() {
     game.isComputerOpponent = true;
-    game.resetGame();
-    $('#user-message span').text("");
-    $('.boxes').empty().removeClass('winner');
-    $('#grid-container div').css('visibility', 'visible');
+    render();
   });
 
 
@@ -57,19 +55,6 @@ $(document).ready(function() {
             $(this).append(game.playerTwoToken).children().hide().fadeIn(400);
           }
         }
-
-        $('#user-message span').text(game.message);
-        $('#player-one-score').text(game.playerOneWinCount);
-        $('#player-two-score').text(game.playerTwoWinCount);
-
-        if (this.gameOver) {
-          $('#grid-container div').css('visibility', 'hidden');
-          for (let i = 0; i < 3; i++) {
-            let winnerID = game.winningRow[i];
-            $('#' + winnerID).addClass('winner');
-            $('.winner').css('visibility', 'visible');
-          }
-        }
       }
     }
 
@@ -83,20 +68,20 @@ $(document).ready(function() {
           if (game.gameOver === false) {
             $('#' + game.performMoveForComputer()).append(game.playerTwoToken).children().hide().delay(700).fadeIn(400);
           }
-
-          $('#user-message span').text(game.message);
-          $('#player-one-score').text(game.playerOneWinCount);
-          $('#player-two-score').text(game.playerTwoWinCount);
-
-          if (game.gameOver) {
-            $('#grid-container div').css('visibility', 'hidden');
-            for (let i = 0; i < 3; i++) {
-              let winnerID = game.winningRow[i];
-              $('#' + winnerID).addClass('winner');
-              $('.winner').css('visibility', 'visible');
-            }
-          }
         }
+      }
+    }
+
+    $('#user-message span').text(game.message);
+    $('#player-one-score').text(game.playerOneWinCount);
+    $('#player-two-score').text(game.playerTwoWinCount);
+
+    if (game.gameOver === true) {
+      $('#grid-container div').css('visibility', 'hidden');
+      for (let i = 0; i < 3; i++) {
+        let winnerID = game.winningRow[i];
+        $('#' + winnerID).addClass('winner');
+        $('.winner').css('visibility', 'visible');
       }
     }
   });
@@ -104,10 +89,7 @@ $(document).ready(function() {
 
 // GAME RESET ///////////////////////////////
   $('#reset').on('click', function() {
-    game.resetGame();
-    $('#user-message span').text("");
-    $('.boxes').empty().removeClass('winner');
-    $('#grid-container div').css('visibility', 'visible');
+    render();
   });
 
 }); // document ready
