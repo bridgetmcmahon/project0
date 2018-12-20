@@ -54,6 +54,10 @@ h2 {
   margin-right: auto;
 }
 
+#christmas {
+  display: none;
+}
+
 .selected {
   background-color: #E71D36;
   color: white

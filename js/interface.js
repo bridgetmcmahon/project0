@@ -9,6 +9,7 @@ $(document).ready(function() {
 
   $('#very-festive').on('click', function() {
     $(this).hide();
+    $('#christmas').show();
     $('header h2').fadeIn(200);
     $('header').css('background', '#E71D36');
     $('main').css('background-color', '#7DCE82');
@@ -16,10 +17,9 @@ $(document).ready(function() {
     $('footer').css('background-color', '#E71D36');
     $('#player-player, #computer').css({'background-color': '#fff', 'color': '#7DCE82'});
     $('.boxes').css('color', '#5B965F');
-    if ($('#normal').hasClass('selected')) {
-      $('.tokens').toggleClass('selected');
-    }
+    $('.tokens').toggleClass('selected');
     setTokens();
+    render();
   });
 
 // SET TOKENS /////////////////////////////////
