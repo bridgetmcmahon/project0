@@ -100,6 +100,7 @@ const game = {
       this.gameOver = true;
       return true;
     }
+    return false;
   },
 
   resetGame: function() {

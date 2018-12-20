@@ -22,7 +22,7 @@ $(document).ready(function() {
     render();
   });
 
-// SET TOKENS /////////////////////////////////
+// SET TOKENS ////////////////////////////////////////
   const setTokens = function() {
     if ($('#normal').hasClass('selected')) {
       game.playerOneToken = '<i class="fas fa-times"></i>';
@@ -42,7 +42,7 @@ $(document).ready(function() {
   });
 
 
-// SET PLAYER OR COMPUTER /////////////////////
+// SET PLAYER OR COMPUTER //////////////////////////////
   $('#player-player').on('click', function() {
     const score = $('#player-two span').text();
     game.isComputerOpponent = false;
@@ -58,7 +58,7 @@ $(document).ready(function() {
   });
 
 
-// UPDATE BOARD ON CLICK (HUMANS) /////////////////////
+// UPDATE BOARD ON CLICK //////////////////////////////
   $('#grid-container').on('click', 'div', function(event) {
 
     if (game.isComputerOpponent === false) {
@@ -97,6 +97,9 @@ $(document).ready(function() {
 
     if (game.gameOver === true) {
       $('#grid-container div').css('visibility', 'hidden');
+      if (game.winningRow.length < 3) {
+        $('#grid-container div').css('visibility', 'visible')
+      }
       for (let i = 0; i < 3; i++) {
         let winnerID = game.winningRow[i];
         $('#' + winnerID).addClass('winner');
@@ -106,7 +109,7 @@ $(document).ready(function() {
   });
 
 
-// GAME RESET ///////////////////////////////
+// GAME RESET //////////////////////////////////////
   $('#reset').on('click', function() {
     render();
   });
