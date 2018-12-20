@@ -29,12 +29,16 @@ $(document).ready(function() {
 
 // SET PLAYER OR COMPUTER /////////////////////
   $('#player-player').on('click', function() {
+    const score = $('#player-two span').text();
     game.isComputerOpponent = false;
+    $('#player-two').html('Player 2: <span id="player-two-score">' + score + '</span>');
     render();
   });
 
   $('#computer').on('click', function() {
+    const score = $('#player-two span').text();
     game.isComputerOpponent = true;
+    $('#player-two').html('Computer: <span id="player-two-score">' + score + '</span>');
     render();
   });
 
