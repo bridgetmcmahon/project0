@@ -59,11 +59,10 @@ const game = {
         this.checkDraw();
         return true;
       } else if (!this.playerOneTurn && this.performMoveForPlayer(position, "Player Two", "O", "playerTwoWinCount")) {
-        ;
         this.playerOneTurn = true;
         this.moves++;
         this.checkDraw();
-        return true
+        return true;
       }
     } else if (this.isComputerOpponent) {
       if (this.performMoveForPlayer(position, "Player One", "X", "playerOneWinCount")) {

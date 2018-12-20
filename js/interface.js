@@ -42,8 +42,9 @@ $(document).ready(function() {
 
 
 // UPDATE BOARD ON CLICK (HUMANS) /////////////////////
-  if (!game.isComputerOpponent) {
-    $('#grid-container').on('click', 'div', function(event) {
+  $('#grid-container').on('click', 'div', function(event) {
+
+    if (game.isComputerOpponent === false) {
 
       if ($(this).html().length < 1 && game.gameOver === false) {
         const id = event.target.id;
@@ -69,22 +70,17 @@ $(document).ready(function() {
             $('.winner').css('visibility', 'visible');
           }
         }
-
       }
-    });
-  };
+    }
 
-
-// UPDATE BOARD ON CLICK (COMPUTER) /////////////////////
-  if (game.isComputerOpponent) {
-    $('#grid-container').on('click', 'div', function() {
+    if (game.isComputerOpponent === true) {
 
       if ($(this).html().length < 1 && game.gameOver === false) {
         const id = event.target.id;
 
         if (game.move(id)) {
-          $(this).append(game.playerTokenOne).children().hide().fadeIn(400);
-          if (!game.gameOver) {
+          $(this).append(game.playerOneToken).children().hide().fadeIn(400);
+          if (game.gameOver === false) {
             $('#' + game.performMoveForComputer()).append(game.playerTwoToken).children().hide().delay(700).fadeIn(400);
           }
 
@@ -102,8 +98,8 @@ $(document).ready(function() {
           }
         }
       }
-    });
-  };
+    }
+  });
 
 
 // GAME RESET ///////////////////////////////
