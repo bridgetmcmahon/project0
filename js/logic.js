@@ -40,7 +40,7 @@ const game = {
   performMoveForComputer: function() {
     const availableSpots = this.emptySpots();
     const index = Math.floor(Math.random() * availableSpots.length);
-    const move = availableSpots[index]
+    const move = availableSpots[index];
     this.board[move] = "O";
     this.moves++;
     if (this.checkWinner()) {
