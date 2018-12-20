@@ -28,6 +28,7 @@ const game = {
   performMoveForPlayer: function(position, name, piece, playerCount) {
     if (this.board[position] !== piece) {
       this.board[position] = piece;
+      this.moves++;
       if (this.checkWinner()) {
         this.message = name + " wins!";
         this[playerCount] += 1;
@@ -55,12 +56,10 @@ const game = {
     if (!this.isComputerOpponent) {
       if (this.playerOneTurn && this.performMoveForPlayer(position, "Player One", "X", "playerOneWinCount")) {
         this.playerOneTurn = false;
-        this.moves++;
         this.checkDraw();
         return true;
       } else if (!this.playerOneTurn && this.performMoveForPlayer(position, "Player Two", "O", "playerTwoWinCount")) {
         this.playerOneTurn = true;
-        this.moves++;
         this.checkDraw();
         return true;
       }

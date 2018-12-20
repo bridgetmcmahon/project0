@@ -16,7 +16,9 @@ $(document).ready(function() {
     $('footer').css('background-color', '#E71D36');
     $('#player-player, #computer').css({'background-color': '#fff', 'color': '#7DCE82'});
     $('.boxes').css('color', '#5B965F');
-    $('.tokens').toggleClass('selected');
+    if ($('#normal').hasClass('selected')) {
+      $('.tokens').toggleClass('selected');
+    }
     setTokens();
   });
 
