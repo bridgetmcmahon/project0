@@ -3,6 +3,7 @@ const game = {
   playerOneToken: '<i class="fas fa-candy-cane"></i>',
   playerTwo: 'O',
   playerTwoToken: '<i class="fas fa-sleigh"></i>',
+  isComputerOpponent: false,
   playerOneWinCount: 0,
   playerTwoWinCount: 0,
   gameOver: false,
@@ -20,9 +21,12 @@ const game = {
     [0, 4, 8],
     [2, 4, 6],
   ],
-  board: [null, null, null, null, null, null, null, null, null],
+  board: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+  emptySpots: function() {
+    return this.board.filter(s => s != "O" && s != "X")
+  },
   performMoveForPlayer: function(position, name, piece, playerCount) {
-    if (this.board[position] !== piece && this.board[position] === null) {
+    if (this.board[position] !== piece) {
       this.board[position] = piece;
       if (this.checkWinner()) {
         this.message = name + " wins!";
@@ -33,21 +37,43 @@ const game = {
     return false;
   },
 
-  move: function(position) {
-    if (this.playerOneTurn && this.performMoveForPlayer(position, "Player One", "X", "playerOneWinCount")) {
-      this.playerOneTurn = false;
-      this.moves++;
-      this.checkDraw();
-      return true;
-    } else if (!this.playerOneTurn && this.performMoveForPlayer(position, "Player Two", "O", "playerTwoWinCount")) {
-      ;
-      this.playerOneTurn = true;
-      this.moves++;
-      this.checkDraw();
-      return true
-    } else {
-      return false;
+  performMoveForComputer: function() {
+    const availableSpots = this.emptySpots();
+    const index = Math.floor(Math.random() * availableSpots.length);
+    const move = availableSpots[index]
+    this.board[move] = "O";
+    this.moves++;
+    if (this.checkWinner()) {
+      this.message = "Computer wins!";
+      this.playerTwoWinCount += 1;
     }
+    this.playerOneTurn = true;
+    return move;
+  },
+
+  move: function(position) {
+    if (!this.isComputerOpponent) {
+      if (this.playerOneTurn && this.performMoveForPlayer(position, "Player One", "X", "playerOneWinCount")) {
+        this.playerOneTurn = false;
+        this.moves++;
+        this.checkDraw();
+        return true;
+      } else if (!this.playerOneTurn && this.performMoveForPlayer(position, "Player Two", "O", "playerTwoWinCount")) {
+        ;
+        this.playerOneTurn = true;
+        this.moves++;
+        this.checkDraw();
+        return true
+      }
+    } else if (this.isComputerOpponent) {
+      if (this.performMoveForPlayer(position, "Player One", "X", "playerOneWinCount")) {
+        this.playerOneTurn = false;
+        this.moves++;
+        this.checkDraw();
+        return true;
+      }
+    }
+    return false;
   },
 
   checkWinner: function() {
@@ -78,7 +104,7 @@ const game = {
   },
 
   resetGame: function() {
-    this.board = [null, null, null, null, null, null, null, null, null];
+    this.board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
     this.moves = 0;
     this.playerOneTurn = true;
     this.message = "";
