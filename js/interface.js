@@ -7,8 +7,6 @@ const render = function() {
 
 $(document).ready(function() {
 
-  $('header h2').hide();
-
   $('#very-festive').on('click', function() {
     $(this).hide();
     $('header h2').fadeIn(200);
@@ -17,7 +15,9 @@ $(document).ready(function() {
     $('#scores, #tally, #user-message').css('background-color', '#7DCE82');
     $('footer').css('background-color', '#E71D36');
     $('#player-player, #computer').css({'background-color': '#fff', 'color': '#7DCE82'});
-    $('.boxes').css('color', '#5B965F')
+    $('.boxes').css('color', '#5B965F');
+    $('.tokens').toggleClass('selected');
+    setTokens();
   });
 
 // SET TOKENS /////////////////////////////////
