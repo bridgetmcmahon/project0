@@ -1,8 +1,8 @@
 const game = {
   playerOne: 'X',
-  playerOneToken: '<i class="fas fa-candy-cane"></i>',
+  playerOneToken: '<i class="fas fa-times"></i>',
   playerTwo: 'O',
-  playerTwoToken: '<i class="fas fa-sleigh"></i>',
+  playerTwoToken: '<i class="far fa-circle"></i>',
   isComputerOpponent: false,
   playerOneWinCount: 0,
   playerTwoWinCount: 0,

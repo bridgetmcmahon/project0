@@ -7,6 +7,19 @@ const render = function() {
 
 $(document).ready(function() {
 
+  $('header h2').hide();
+
+  $('#very-festive').on('click', function() {
+    $(this).hide();
+    $('header h2').fadeIn(200);
+    $('header').css('background', '#E71D36');
+    $('main').css('background-color', '#7DCE82');
+    $('#scores, #tally, #user-message').css('background-color', '#7DCE82');
+    $('footer').css('background-color', '#E71D36');
+    $('#player-player, #computer').css({'background-color': '#fff', 'color': '#7DCE82'});
+    $('.boxes').css('color', '#5B965F')
+  });
+
 // SET TOKENS /////////////////////////////////
   const setTokens = function() {
     if ($('#normal').hasClass('selected')) {
