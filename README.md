@@ -1,9 +1,9 @@
 # Project 0 - Tic Tac Toe
 
-## Why I did this
-This game is a project for the immersive web development course I'm doing at General Assembly. The goal is to take what we've learned about HTML, CSS, Javascript & jQuery in the last two weeks and create a Tic Tac Toe game from scratch.
+## Why does this project exist
+This game is a project for the immersive web development course at General Assembly. The goal is to take what we've learned about HTML, CSS, Javascript & jQuery in the last two weeks and create a Tic Tac Toe game from scratch.
 
-At the time of developing/writing this README, it is 1 week until Christmas, so it is festively themed - 'tis the season etc. I may remove this later, but Christmas is fun so I also might leave it.
+At the time of developing this game/writing this README, it is 1 week until Christmas, so it is festively themed - 'tis the season etc. I may remove this later, but Christmas is fun so I also might leave it.
 
 ## How I did this
 I started by creating a game object containing all the necessary logic to play Tic Tac Toe using noughts & crosses. It was initially a very basic player v player version. I spent a while mapping out how the functions would work and I wrote a fair bit of code to get it functioning. After that the challenge was to refactor the functions to make them less repetitive. Once I was happy with the functionality I tackled a bit of CSS and added some animations to make it play smoothly, followed by creating a computer AI. Adding the computer into the logic was a frustrating process because I had to rewrite a bit of the existing code and make it mesh with what I already had. It now works reasonably well (but I'm sure it still has a few bugs).
