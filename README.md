@@ -6,12 +6,20 @@ This game is a project for the immersive web development course I'm doing at Gen
 At the time of developing/writing this README, it is 1 week until Christmas, so it is festively themed - 'tis the season etc. I may remove this later, but Christmas is fun so I also might leave it.
 
 ## How I did this
-I started by creating a game object containing all the necessary logic to play Tic Tac Toe using noughts & crosses.
+I started by creating a game object containing all the necessary logic to play Tic Tac Toe using noughts & crosses. It was initially a very basic player v player version
 
 Languages:
 - HTML
 - CSS
-- JavaScript (and jQuery)
+- JavaScript (plus jQuery)
+
+## Features
+- Win counter and new game button so you can play multiple games and keep track of scores
+- Optional Christmas tokens and Christmas theme
+- An easy AI to play against
+
+## Live Demo
+[Click here](https://bridgetmcmahon.github.io/project0/) to play the game. 
 
 ## Still to come
 I attempted creating a computer AI that was reasonably hard (if not impossible) to beat. I tried implementing this using the min-max algorithm after reading a [Wikipedia](https://en.wikipedia.org/wiki/Tic-tac-toe) article and [this article](https://medium.freecodecamp.org/how-to-make-your-tic-tac-toe-game-unbeatable-by-using-the-minimax-algorithm-9d690bad4b37) at Free Code Camp, but both my maths and coding skills failed me and I couldn't quite get it to work. Instead, the computer AI is simple and fills random positions on the board. The unbeatable AI is something I plan to come back to and solve.
@@ -19,5 +27,5 @@ I attempted creating a computer AI that was reasonably hard (if not impossible) 
 ## What it looks like
 ![Vanilla Tic Tac Toe](images/screen1.png)
 
-The festive version:
+#### The festive version:
 ![Christmas Tic Tac Toe](images/screen2.png)
