@@ -61,6 +61,7 @@ $(document).ready(function() {
 // UPDATE BOARD ON CLICK //////////////////////////////
   $('#grid-container').on('click', 'div', function(event) {
 
+    ////// PLAYER V PLAYER /////
     if (game.isComputerOpponent === false) {
 
       if ($(this).html().length < 1 && game.gameOver === false) {
@@ -77,6 +78,7 @@ $(document).ready(function() {
       }
     }
 
+    ///// PLAYER V COMPUTER /////
     if (game.isComputerOpponent === true) {
 
       if ($(this).html().length < 1 && game.gameOver === false) {
