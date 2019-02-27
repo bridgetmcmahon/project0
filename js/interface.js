@@ -7,7 +7,10 @@ const render = function() {
 
 $(document).ready(function() {
 
+  $('.tokens').hide();
+
   $('#very-festive').on('click', function() {
+    $('.tokens').show();
     $(this).hide();
     $('#christmas').show();
     $('header h2').fadeIn(200);

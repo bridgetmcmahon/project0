@@ -2,8 +2,11 @@
 
 body {
   font-family: Helvetica, sans-serif;
-  box-sizing: border-box;
   font-family: "Lato", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 header {
@@ -64,7 +67,6 @@ h2 {
 }
 
 .score {
-  /* display: inline-grid; */
   display: flex;
   flex-wrap: wrap;
   text-align: center;
@@ -95,14 +97,6 @@ button:focus {
   font-weight: 700;
 }
 
-#scores {
-  background-color: #EE8C8C;
-  color: white;
-  text-align: center;
-  display: flex;
-  margin: 0 auto;
-}
-
 #tally {
   display: flex;
   max-height: 35px;
@@ -113,8 +107,8 @@ button:focus {
   text-align: center;
   margin: 0 auto;
   justify-content: space-between;
-  font-size: 1.2em;
-  padding-top: 15px;
+  font-size: 1.2rem;
+  color: white;
   font-family: "Lato", sans-serif;
   text-transform: uppercase;
 }
@@ -125,12 +119,12 @@ button:focus {
 
 #user-message {
   display: flex;
-  height: 40px;
+  line-height: 35px;
   padding: 0 20px;
   background-color: #EE8C8C;
   text-align: center;
   color: white;
-  font-size: 30px;
+  font-size: 1.5rem;
 }
 
 #user-message span {
@@ -141,7 +135,7 @@ button:focus {
 
 main {
   background-color: #EE8C8C;
-  padding-top: 20px;
+  padding-top: 10px;
   padding-bottom: 50px;
 }
 
@@ -202,4 +196,66 @@ footer {
 
 .winner {
   background-color: white;
+}
+
+@media only screen and (max-width: 580px) {
+  * {
+    box-sizing: border-box;
+  }
+
+  #grid-container {
+    max-width: 360px;
+    max-height: 360px;
+  }
+
+  .boxes {
+    display: inline-grid;
+    width: 110px;
+    height: 110px;
+  }
+
+  #player-buttons {
+    max-width: 350px;
+    margin: 10px auto;
+    display: block;
+    text-align: center;
+  }
+
+  #player-buttons button, #settings {
+    font-size: 75%;
+  }
+
+  #user-message {
+    padding: 0 3px;
+  }
+
+  #user-message span {
+    max-width: 180px;
+    font-size: 75%;
+  }
+
+  #settings {
+    display: block;
+    max-height: 70px;
+  }
+
+  #settings span {
+    display: block;
+    width: 100vw;
+  }
+
+  #settings > span > button {
+    width: 49.5%;
+  }
+
+  #grid-container .fas, #grid-container .far {
+    line-height: 110px;
+    font-size: 80%;
+  }
+
+  .score {
+    font-size: 80%;
+    margin: 0 4px;
+  }
+
 }
